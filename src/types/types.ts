@@ -10,8 +10,8 @@ export interface Account {
     readonly id: number,
     name: string,
     surname: string,
-    account_created_at: Date, // en la funcion se pondra la fecha automaticamente
-
+    account_created_at: number, // en la funcion se pondra la fecha automaticamente
+    initial_balance: number
 }
 
 /**
