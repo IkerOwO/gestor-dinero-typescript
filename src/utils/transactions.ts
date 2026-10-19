@@ -22,7 +22,7 @@ let now = Date.now();
  * @param initial_balance balance inicial
  * @returns mensaje de confirmacion
  */
-export function createAccount(name: string, surname: string, email: string, password: string, initial_balance: number): string {
+export function createAccount(name: string, surname: string, email: string, password: string, initial_balance: number): boolean {
     const account: Account = {
         id: accountId++,
         name: name,
@@ -33,10 +33,19 @@ export function createAccount(name: string, surname: string, email: string, pass
         initial_balance: initial_balance
     };
 
+    // Comprobamos que no existe la cuenta ya en localStorage
+    const cuenta = JSON.parse(localStorage.getItem('account') ?? '{}') as Account;
+    if (cuenta.email === email) {
+        alert("Email ya vinculado a una cuenta!");
+        return false;
+    }
+
     // Guardamos el usuario a LocalStorage
     saveAccountOnLocalStorage(account);
 
-    return "¡Se ha guardado el usuario con exito!";
+    console.log("¡Se ha guardado el usuario con exito!");
+    
+    return true;
 }
 
 /**
