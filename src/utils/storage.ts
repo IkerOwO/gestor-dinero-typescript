@@ -1,5 +1,6 @@
 /**
  * Archivo para guardar en localstorage
+ * Mas adelante cambiare localstorage por una bbdd en mySQL
  * @author IkerOwO
  */
 
