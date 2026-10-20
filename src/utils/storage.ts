@@ -16,6 +16,7 @@ export function saveAccountOnLocalStorage(account: Account): void {
 
 /**
  * Funcion para leer de localstorage la cuenta
+ * @returns cuenta 
  */
 export function readAccountFromLocalStorage(): Account | undefined {
     const cuenta = JSON.parse(localStorage.getItem('account') ?? '{}') as Account;

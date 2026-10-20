@@ -4,6 +4,7 @@
  */
 
 import { createAccount, loginAccount } from './utils/transactions'
+import Chart from 'chart.js/auto';
 
 /**
  * UI Registro
@@ -195,5 +196,34 @@ export function loginUI() {
  * UI Dashboard
  */
 export function dashboard() {
-    
+    const topMenuDiv = document.createElement('div');
+    topMenuDiv.className = 'topnav';
+
+    const homeA = document.createElement('a');
+    homeA.textContent = 'Inicio'
+    homeA.href = '#dashboard';
+
+    const accountStatus = document.createElement('a');
+    accountStatus.textContent = 'Estado de cuenta';
+    accountStatus.href = '#account';
+
+    // Agregamos al divisor del top menu
+    topMenuDiv.appendChild(homeA);
+    topMenuDiv.appendChild(accountStatus);
+
+
+    // Agregamos todo al body
+    document.body.appendChild(topMenuDiv);
+
+
+}
+
+/**
+ * UI Account Status
+ */
+export function accountStatus() {
+    const goBackBtn = document.createElement('a');
+    goBackBtn.textContent = 'Volver';
+    goBackBtn.href = '#home';
+
 }
